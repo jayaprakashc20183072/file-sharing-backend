@@ -1,10 +1,12 @@
+dotenv.config();
 import mongoose from "mongoose";
-
+import dotenv from "dotenv";
+const DATABASE = process.env.DATABASE;
 
 
 const DBConnection = async () => {
     try {
-        await mongoose.connect(`mongodb+srv://jayaprakashc456:mongodbpassword@file-sharing.op7xxgt.mongodb.net/`,{ useNewUrlParser: true});
+        await mongoose.connect(`${DATABASE}`,{ useNewUrlParser: true});
     } catch (error) {
         console.error("error while connecting to the database",error.message);
     }
